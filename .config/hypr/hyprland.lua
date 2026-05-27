@@ -308,7 +308,7 @@ hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 -- hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+-- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 -- hl.bind(mainMod .. " + A", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + hjkl
@@ -329,6 +329,23 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action
 hl.bind("Print", hl.dsp.exec_cmd('grim - | satty -f - --copy-command wl-copy -o "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("alacritty --class clipse -e clipse", { float = true, size = {622, 652}, stay_focused = true }))
 
+-- submap dispatch helper
+local sdh = function (dispatch)
+	return function ()
+		hl.dispatch(dispatch)
+		hl.dispatch(hl.dsp.submap("reset"))
+	end
+end
+
+-- Edit Window Status
+hl.bind(mainMod .. " + W", hl.dsp.submap("window"))
+hl.define_submap("window", function()
+	hl.bind("V", sdh(hl.dsp.window.float({ action = "toggle" })))
+	hl.bind("P", sdh(hl.dsp.window.pseudo()))
+
+	hl.bind("catchall", hl.dsp.submap("reset"))
+end)
+
 -- Run Application
 hl.bind(mainMod .. " + A", hl.dsp.submap("application"))
 local apps = {
@@ -338,10 +355,13 @@ local apps = {
 }
 hl.define_submap("application", function()
 	for _, a in ipairs(apps) do
+		--[[
 		hl.bind(a["bind"], function()
 			hl.dispatch(hl.dsp.exec_cmd(a["app"]))
 			hl.dispatch(hl.dsp.submap("reset"))
 		end)
+		]]
+		hl.bind(a["bind"], sdh(hl.dsp.exec_cmd(a["app"])))
 	end
 	hl.bind("catchall", hl.dsp.submap("reset"))
 	-- hl.bind("F", hl.dsp.exec_cmd("firefox"))
