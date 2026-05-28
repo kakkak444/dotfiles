@@ -62,7 +62,7 @@ local menu        = "hyprlauncher"
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
 -- end)
 hl.on("hyprland.start", function()
-	hl.exec_cmd("fcitx5 -d")
+	hl.exec_cmd("fcitx5 -d -r")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("clipse -listen")
