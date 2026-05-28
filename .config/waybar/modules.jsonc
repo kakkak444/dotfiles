@@ -162,7 +162,7 @@
         "timezone": "Asia/Tokyo",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         // "format-alt": "{:%H:%M %d %B %Y}",
-	"format-alt": "{:%Y/%m/%d %H:%M}",
+	"format": "{:%Y/%m/%d %H:%M}",
         // "on-click-right": "hyprctl eval \"hl.exec_cmd('alacritty --class=peaclock -e peaclock')\"",
         "calendar": {
             "mode": "year",
