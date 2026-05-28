@@ -311,19 +311,20 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 -- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 -- hl.bind(mainMod .. " + A", hl.dsp.layout("togglesplit"))    -- dwindle only
 
--- Move focus with mainMod + hjkl
+-- Move focus with mainMod + hjklui
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
--- Move focus window with mainMod + HJKL
+hl.bind(mainMod .. " + U", hl.dsp.focus({ monitor = "+1" }))
+hl.bind(mainMod .. " + I", hl.dsp.focus({ monitor = "-1" }))
+-- Move focus window with mainMod + HJKLUI
 hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.move({ direction = "left" }))
 hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.move({ direction = "right" }))
 hl.bind(mainMod .. " + CTRL + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.move({ direction = "down" }))
--- Move focus workspace with mainMod + UI
-hl.bind(mainMod .. " + U", hl.dsp.focus({ monitor = "+1" }))
-hl.bind(mainMod .. " + I", hl.dsp.focus({ monitor = "-1" }))
+hl.bind(mainMod .. " + CTRL + U", hl.dsp.window.move({ monitor = "+1" }))
+hl.bind(mainMod .. " + CTRL + I", hl.dsp.window.move({ monitor = "-1" }))
 
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle"}))
 hl.bind("Print", hl.dsp.exec_cmd('grim - | satty -f - --copy-command wl-copy -o "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'))
@@ -342,6 +343,7 @@ hl.bind(mainMod .. " + W", hl.dsp.submap("window"))
 hl.define_submap("window", function()
 	hl.bind("V", sdh(hl.dsp.window.float({ action = "toggle" })))
 	hl.bind("P", sdh(hl.dsp.window.pseudo()))
+	hl.bind("A", sdh(hl.dsp.layout("togglesplit")))
 
 	hl.bind("catchall", hl.dsp.submap("reset"))
 end)
