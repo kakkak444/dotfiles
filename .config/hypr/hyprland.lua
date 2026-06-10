@@ -301,7 +301,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + TAB + C", hl.dsp.window.close())
+-- local closeWindowBind = hl.bind(mainMod .. " + TAB + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + ALT + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("hyprlock"))
@@ -344,6 +344,7 @@ hl.define_submap("window", function()
 	hl.bind("V", sdh(hl.dsp.window.float({ action = "toggle" })))
 	hl.bind("P", sdh(hl.dsp.window.pseudo()))
 	hl.bind("A", sdh(hl.dsp.layout("togglesplit")))
+	hl.bind("C", sdh(hl.dsp.window.close()))
 
 	hl.bind("catchall", hl.dsp.submap("reset"))
 end)
@@ -454,5 +455,25 @@ hl.window_rule({
 
 	move  = "20 monitor_h-120",
 	float = true,
+})
+
+-- games windowrule
+hl.window_rule({
+	match = { initial_class="games.exe" },
+	float = true,
+	monitor = "DP-1",
+})
+hl.window_rule({
+	match = { initial_class="endfield.exe" },
+	monitor = "DP-1",
+})
+hl.window_rule({
+	match = { title="Zenless Zone Zero" },
+	float = true,
+	monitor = "DP-1",
+})
+hl.window_rule({
+	match = { title="ZenlessZoneZero" },
+	monitor = "DP-1",
 })
 
