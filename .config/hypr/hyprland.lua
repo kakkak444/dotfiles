@@ -473,6 +473,7 @@ hl.window_rule({
 hl.window_rule({
 	match = { initial_class="endfield.exe" },
 	monitor = "DP-1",
+	immediate = true,
 })
 hl.window_rule({
 	match = { title="Zenless Zone Zero" },
@@ -482,5 +483,6 @@ hl.window_rule({
 hl.window_rule({
 	match = { title="ZenlessZoneZero" },
 	monitor = "DP-1",
+	immediate = true,
 })
 
