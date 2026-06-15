@@ -466,12 +466,12 @@ hl.window_rule({
 
 -- games windowrule
 hl.window_rule({
-	match = { initial_class="games.exe" },
+	match = { title="Arknights: Endfield" },
 	float = true,
 	monitor = "DP-1",
 })
 hl.window_rule({
-	match = { initial_class="endfield.exe" },
+	match = { title="Endfield" },
 	monitor = "DP-1",
 	immediate = true,
 })
