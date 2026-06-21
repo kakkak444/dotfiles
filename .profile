@@ -11,6 +11,7 @@ if uwsm check may-start; then
 fi
 
 . "$HOME/.cargo/env"
+. "$HOME/.ghcup/env"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
