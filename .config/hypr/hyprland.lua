@@ -353,6 +353,7 @@ hl.define_submap("window", function()
 	hl.bind("P", sdh(hl.dsp.window.pseudo()))
 	hl.bind("A", sdh(hl.dsp.layout("togglesplit")))
 	hl.bind("C", sdh(hl.dsp.window.close()))
+	hl.bind("1", sdh(hl.dsp.exec_cmd("1password --quick-access")))
 
 	hl.bind("catchall", hl.dsp.submap("reset"))
 end)
