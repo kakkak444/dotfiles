@@ -354,11 +354,10 @@ end
 -- Edit Window Status
 hl.bind(mainMod .. " + W", hl.dsp.submap("window"))
 hl.define_submap("window", function()
-	hl.bind("V", sdh(hl.dsp.window.float({ action = "toggle" })))
+	hl.bind("F", sdh(hl.dsp.window.float({ action = "toggle" })))
 	hl.bind("P", sdh(hl.dsp.window.pseudo()))
 	hl.bind("A", sdh(hl.dsp.layout("togglesplit")))
 	hl.bind("C", sdh(hl.dsp.window.close()))
-	hl.bind("1", sdh(hl.dsp.exec_cmd("1password --quick-access")))
 
 	hl.bind("catchall", hl.dsp.submap("reset"))
 end)
@@ -369,6 +368,7 @@ local apps = {
 	{ bind = "F", app = "firefox" },
 	{ bind = "V", app = "code" },
 	{ bind = "T", app = terminal },
+	{ bind = "1", app = "1password --quick-access" },
 }
 hl.define_submap("application", function()
 	for _, a in ipairs(apps) do
