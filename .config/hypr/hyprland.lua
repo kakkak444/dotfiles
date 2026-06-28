@@ -62,8 +62,6 @@ local menu        = "hyprlauncher"
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
 -- end)
 hl.on("hyprland.start", function()
-	-- hl.exec_cmd("yaskkserv2 --google-suggest /var/tmp/dictionary.yaskkserv2")
-	-- hl.exec_cmd("yaskkserv2 --google-suggest /var/tmp/dictionary.yaskkserv2 ; fcitx5 -d -r")
 	hl.dispatch(function()
 		hl.exec_cmd("yaskkserv2 --google-suggest /var/tmp/dictionary.yaskkserv2")
 		hl.exec_cmd("fcitx5 -d -r")
@@ -77,7 +75,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("kwalletd6")
 	hl.exec_cmd("/usr/lib/pam_kwallet_init")
-	-- hl.exec_cmd("hyprctl dispatch workspace 1")
 	hl.dispatch(hl.dsp.focus({ workspace = "1" }))
 end)
 
@@ -321,10 +318,7 @@ hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + ALT + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
--- hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
--- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
--- hl.bind(mainMod .. " + A", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + hjklui
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
@@ -358,7 +352,7 @@ hl.bind(mainMod .. " + W", hl.dsp.submap("window"))
 hl.define_submap("window", function()
 	hl.bind("F", sdh(hl.dsp.window.float({ action = "toggle" })))
 	hl.bind("P", sdh(hl.dsp.window.pseudo()))
-	hl.bind("A", sdh(hl.dsp.layout("togglesplit")))
+	hl.bind("A", sdh(hl.dsp.layout("togglesplit"))) -- dwindle only
 	hl.bind("C", sdh(hl.dsp.window.close()))
 
 	hl.bind("catchall", hl.dsp.submap("reset"))
@@ -374,18 +368,9 @@ local apps = {
 }
 hl.define_submap("application", function()
 	for _, a in ipairs(apps) do
-		--[[
-		hl.bind(a["bind"], function()
-			hl.dispatch(hl.dsp.exec_cmd(a["app"]))
-			hl.dispatch(hl.dsp.submap("reset"))
-		end)
-		]]
 		hl.bind(a["bind"], sdh(hl.dsp.exec_cmd(a["app"])))
 	end
 	hl.bind("catchall", hl.dsp.submap("reset"))
-	-- hl.bind("F", hl.dsp.exec_cmd("firefox"))
-	-- hl.bind("V", hl.dsp.exec_cmd("code"))
-	-- hl.bind("catchall", hl.dsp.submap("reset"))
 end)
 
 -- Switch workspaces with mainMod + [0-9]
