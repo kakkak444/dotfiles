@@ -316,7 +316,7 @@ hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 -- local closeWindowBind = hl.bind(mainMod .. " + TAB + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + ALT + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("1password --lock ; hyprlock"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 
