@@ -337,6 +337,7 @@ hl.bind(mainMod .. " + CTRL + I", hl.dsp.window.move({ monitor = "-1" }))
 
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle"}))
 hl.bind("Print", hl.dsp.exec_cmd('grim - | satty -f - --copy-command wl-copy -o "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'))
+hl.bind("ALT + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | satty -f - --copy-command wl-copy -o "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("alacritty --class clipse -e clipse", { float = true, size = {622, 652}, stay_focused = true }))
 
 -- submap dispatch helper
