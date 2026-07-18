@@ -25,13 +25,13 @@ hl.monitor({
 ]]
 
 hl.monitor({
-	output   = "DP-3",
+	output   = "DP-1",
 	mode     = "3840x2160@60",
 	position = "0x0",
 	scale    = 1.5,
 })
 hl.monitor({
-	output   = "HDMI-A-3",
+	output   = "HDMI-A-1",
 	mode     = "1920x1080@74.97",
 	position = "-2560x0",
 	scale    = 0.75,
@@ -463,21 +463,21 @@ hl.window_rule({
 hl.window_rule({
 	match = { title="Arknights: Endfield" },
 	float = true,
-	monitor = "DP-3",
+	monitor = "DP-1",
 })
 hl.window_rule({
 	match = { title="Endfield" },
-	monitor = "DP-3",
+	monitor = "DP-1",
 	immediate = true,
 })
 hl.window_rule({
 	match = { title="Zenless Zone Zero" },
 	float = true,
-	monitor = "DP-3",
+	monitor = "DP-1",
 })
 hl.window_rule({
 	match = { title="ZenlessZoneZero" },
-	monitor = "DP-3",
+	monitor = "DP-1",
 	immediate = true,
 })
 
