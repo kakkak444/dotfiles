@@ -463,21 +463,21 @@ hl.window_rule({
 hl.window_rule({
 	match = { title="Arknights: Endfield" },
 	float = true,
-	monitor = "DP-1",
+	monitor = "DP-3",
 })
 hl.window_rule({
 	match = { title="Endfield" },
-	monitor = "DP-1",
+	monitor = "DP-3",
 	immediate = true,
 })
 hl.window_rule({
 	match = { title="Zenless Zone Zero" },
 	float = true,
-	monitor = "DP-1",
+	monitor = "DP-3",
 })
 hl.window_rule({
 	match = { title="ZenlessZoneZero" },
-	monitor = "DP-1",
+	monitor = "DP-3",
 	immediate = true,
 })
 
