@@ -37,6 +37,11 @@ hl.monitor({
 	scale    = 0.75,
 })
 
+-- main monitor
+hl.workspace_rule({ workspace="1", monitor="DP-1",     default=true })
+-- sub monitors
+hl.workspace_rule({ workspace="2", monitor="HDMI-A-1", default=true })
+
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
@@ -221,8 +226,6 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 --	 border_size = 0,
 --	 rounding	= 0,
 -- })
-hl.workspace_rule({ workspace="1", monitor="DP-1",     default=true })
-hl.workspace_rule({ workspace="2", monitor="HDMI-A-1", default=true })
 
 hl.config({
 	xwayland = {
@@ -463,21 +466,21 @@ hl.window_rule({
 hl.window_rule({
 	match = { title="Arknights: Endfield" },
 	float = true,
-	monitor = "DP-1",
+	monitor = "1",
 })
 hl.window_rule({
 	match = { title="Endfield" },
-	monitor = "DP-1",
+	monitor = "1",
 	immediate = true,
 })
 hl.window_rule({
 	match = { title="Zenless Zone Zero" },
 	float = true,
-	monitor = "DP-1",
+	monitor = "1",
 })
 hl.window_rule({
 	match = { title="ZenlessZoneZero" },
-	monitor = "DP-1",
+	monitor = "1",
 	immediate = true,
 })
 
