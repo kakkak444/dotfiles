@@ -17,3 +17,12 @@ fi
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# nix
+if [ -d "$HOME/.nix-profile/bin" ]; then
+	PATH="$HOME/.nix-profile/bin:$PATH"
+fi
+
+if [ -d "$HOME/.nix-profile/share" ]; then
+	XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+fi
+
