@@ -13,10 +13,6 @@ fi
 . "$HOME/.cargo/env"
 . "$HOME/.ghcup/env"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # nix
 if [ -d "$HOME/.nix-profile/bin" ]; then
 	PATH="$HOME/.nix-profile/bin:$PATH"
