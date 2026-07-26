@@ -11,7 +11,6 @@ alias ll='ls -l'
 alias l='ls'
 alias grep='grep --color=auto'
 PS1='[\u@\h \w]\$ '
-source /home/glabyl/.safe-chain/scripts/init-posix.sh # Safe-chain bash initialization script
 
 eval "$(direnv hook bash)"
 
