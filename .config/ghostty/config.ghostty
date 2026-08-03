@@ -1,0 +1,16 @@
+theme = mytheme
+
+font-family = "PlemolJP35 Console HS"
+font-style = bold
+font-size = 12
+
+cursor-style = block
+cursor-style-blink = true
+
+window-padding-x = 10
+window-padding-y = 10
+
+bold-color = bright
+
+background-opacity = 0.8
+

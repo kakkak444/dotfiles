@@ -47,7 +47,7 @@ hl.workspace_rule({ workspace="2", monitor="HDMI-A-1", default=true })
 ---------------------
 
 -- Set programs that you use
-local terminal    = "alacritty"
+local terminal    = "ghostty"
 local fileManager = "dolphin"
 local menu        = "hyprlauncher"
 
