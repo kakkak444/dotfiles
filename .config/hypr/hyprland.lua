@@ -38,9 +38,9 @@ hl.monitor({
 })
 
 -- main monitor
-hl.workspace_rule({ workspace="1", monitor="DP-1",     default=true })
+hl.workspace_rule({ workspace="1", monitor="DP-3",     default=true })
 -- sub monitors
-hl.workspace_rule({ workspace="2", monitor="HDMI-A-1", default=true })
+hl.workspace_rule({ workspace="2", monitor="HDMI-A-3", default=true })
 
 ---------------------
 ---- MY PROGRAMS ----
