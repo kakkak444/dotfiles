@@ -3,7 +3,7 @@
 #
 
 if [ -d "$HOME/.local/bin" ]; then
-	PATH="$HOME/.local/bin:$PATH"
+	export PATH="$HOME/.local/bin:$PATH"
 fi
 
 if uwsm check may-start; then
@@ -14,10 +14,10 @@ fi
 
 # nix
 if [ -d "$HOME/.nix-profile/bin" ]; then
-	PATH="$HOME/.nix-profile/bin:$PATH"
+	export PATH="$HOME/.nix-profile/bin:$PATH"
 fi
 
 if [ -d "$HOME/.nix-profile/share" ]; then
-	XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
+	export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
 fi
 
