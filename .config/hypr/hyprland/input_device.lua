@@ -2,6 +2,19 @@
 ---- INPUT ----
 ---------------
 
+hl.device({
+	name = "elecom-trackball-mouse-deft-pro-trackball-mouse",
+	sensitivity = 0,
+	scroll_method = "on_button_down",
+	scroll_button = 278,
+	scroll_button_lock = true,
+})
+
+hl.device({
+	name = "logitech-g304-1",
+	sensitivity = 0,
+})
+
 hl.config({
         input = {
                 kb_layout  = "us",
@@ -19,10 +32,6 @@ hl.config({
                 touchpad = {
                         natural_scroll = false,
                 },
-
-                scroll_method = "on_button_down",
-                scroll_button = 278,
-                scroll_button_lock = true,
         },
 })
 
