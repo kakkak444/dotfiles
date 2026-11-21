@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let basePath = ../.;
+in
+
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -38,11 +41,7 @@
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = ( import ./mapFileSimple.nix { inherit (pkgs) lib; basePath = ../.; } [
-    ".bash_logout"
-    ".bash_profile"
-    ".bashrc"
-    ".profile"
+  home.file = ( import ./mapFileSimple.nix { inherit (pkgs) lib; inherit basePath; } [
     ".vimrc"
     ".config"
   ] ) // {
@@ -77,6 +76,28 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
+
+  programs.bash = {
+    enable = true;
+    logoutExtra = builtins.readFile "${basePath}/.bash_logout";
+    profileExtra = builtins.readFile "${basePath}/.profile";
+    shellAliases = {
+      ls   = "ls --color=auto";
+      la   = "ls -a";
+      ll   = "ls -l";
+      l    = "ls";
+      grep = "grep --color=auto";
+    };
+    initExtra = ''
+      PS1='[\u@\h \w]\$ '
+    '';
   };
 
   # Let Home Manager install and manage itself.
