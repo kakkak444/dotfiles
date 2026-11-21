@@ -16,7 +16,7 @@
   home.stateVersion = "26.05"; # Please read the comment before changing.
 
   imports = [
-    ./home-manager/file.nix
+    ./file.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
