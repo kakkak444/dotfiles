@@ -28,12 +28,12 @@
       };
       extraFlakes = {
         yaskkserv2 = yaskkserv2 // { packages = builtins.mapAttrs (system: pkgsSet: {
-              default = pkgsSet.default.overrideAttrs (oldAttrs: {
+            default = pkgsSet.default.overrideAttrs (oldAttrs: {
                   env.RUSTFLAGS = "${oldAttrs.env.RUSTFLAGS or ""} -C target-cpu=native ";
                   cargoBuildType = "production";
                 });
-	    }) yaskkserv2.packages;
-	  };
+              }) yaskkserv2.packages;
+          };
         conv-unicode-skkserv = conv-unicode-skkserv;
       };
     in
