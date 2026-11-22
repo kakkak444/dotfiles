@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "conv-unicode-skkserv": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795323035,
+        "narHash": "sha256-liE4w6us3WdwWTMVgK6Jyzc9lniarYAsJaLM8vXcJoQ=",
+        "owner": "kakkak444",
+        "repo": "conv-unicode-skkserv-hs",
+        "rev": "df2f43bd52246e596e75151924f418dc867b7861",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kakkak444",
+        "repo": "conv-unicode-skkserv-hs",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -38,8 +58,30 @@
     },
     "root": {
       "inputs": {
+        "conv-unicode-skkserv": "conv-unicode-skkserv",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "yaskkserv2": "yaskkserv2"
+      }
+    },
+    "yaskkserv2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791013959,
+        "narHash": "sha256-3jkB0I+Xp6OA3eQ/Nh6Sqr8DIF2LNpdHFWNLTZN9iYU=",
+        "owner": "wachikun",
+        "repo": "yaskkserv2",
+        "rev": "08aabbc91a39c67ff2562b29f92c2a274bd0394b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wachikun",
+        "repo": "yaskkserv2",
+        "type": "github"
       }
     }
   },

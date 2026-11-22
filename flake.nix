@@ -8,13 +8,32 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    yaskkserv2 = {
+      url = "github:wachikun/yaskkserv2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    conv-unicode-skkserv = {
+      url = "github:kakkak444/conv-unicode-skkserv-hs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
+    { nixpkgs, home-manager, yaskkserv2, conv-unicode-skkserv, ... }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      overlay = final: prev: {
+        yaskkserv2 = yaskkserv2.packages.${system}.default.overrideAttrs (oldAttrs: {
+            env.RUSTFLAGS = "${oldAttrs.env.RUSTFLAGS or ""} -C target-cpu=native ";
+            cargoBuildType = "production";
+          });
+        conv-unicode-skkserv = conv-unicode-skkserv.packages.${system}.default;
+      };
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ overlay ];
+      };
     in
     {
       homeConfigurations."glabyl" = home-manager.lib.homeManagerConfiguration {
