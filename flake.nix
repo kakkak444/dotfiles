@@ -23,16 +23,18 @@
     { nixpkgs, home-manager, yaskkserv2, conv-unicode-skkserv, ... }:
     let
       system = "x86_64-linux";
-      overlay = final: prev: {
-        yaskkserv2 = yaskkserv2.packages.${system}.default.overrideAttrs (oldAttrs: {
-            env.RUSTFLAGS = "${oldAttrs.env.RUSTFLAGS or ""} -C target-cpu=native ";
-            cargoBuildType = "production";
-          });
-        conv-unicode-skkserv = conv-unicode-skkserv.packages.${system}.default;
-      };
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ overlay ];
+      };
+      extraFlakes = {
+        yaskkserv2 = yaskkserv2 // { packages = builtins.mapAttrs (system: pkgsSet: {
+              default = pkgsSet.default.overrideAttrs (oldAttrs: {
+                  env.RUSTFLAGS = "${oldAttrs.env.RUSTFLAGS or ""} -C target-cpu=native ";
+                  cargoBuildType = "production";
+                });
+	    }) yaskkserv2.packages;
+	  };
+        conv-unicode-skkserv = conv-unicode-skkserv;
       };
     in
     {
@@ -45,6 +47,9 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
+        extraSpecialArgs = {
+          inherit extraFlakes;
+        };
       };
     };
 }
